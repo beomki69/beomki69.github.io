@@ -13,6 +13,9 @@ layout: default
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
+            <div class="profile">
+              <img src="{{ '/img/profile.gif' | relative_url }}" alt="profile">
+            </div>
             <h1>{{ site.title }}</h1>
             {% if site.description %}
             <span class="subheading">{{ site.description }}</span>
@@ -34,7 +37,12 @@ layout: default
 
         <article class="post-preview">
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            <h2 class="post-title">{{ post.title }}</h2>
+            <h2 class="post-title">
+              {% if post.icon %}
+                {{ post.icon }}
+              {% endif %}
+              {{ post.title }}
+              </h2>
             {% if post.subtitle %}
             <h3 class="post-subtitle">{{ post.subtitle }}</h3>
             {% else %}
