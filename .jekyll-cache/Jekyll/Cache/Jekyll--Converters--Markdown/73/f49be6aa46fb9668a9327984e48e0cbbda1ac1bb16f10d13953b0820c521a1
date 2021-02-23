@@ -1,0 +1,115 @@
+I"�<div class="post-nav">
+<ul id="markdown-toc">
+  <li><a href="#시작하기-전에" id="markdown-toc-시작하기-전에">시작하기 전에</a></li>
+  <li><a href="#가장-먼저" id="markdown-toc-가장-먼저">가장 먼저</a></li>
+  <li><a href="#하지만-우리는" id="markdown-toc-하지만-우리는">하지만 우리는</a></li>
+  <li><a href="#참고사이트" id="markdown-toc-참고사이트">참고사이트</a></li>
+</ul>
+
+</div>
+
+<h2 id="시작하기-전에">시작하기 전에</h2>
+
+<p>Jekyll로 블로그를 만들다보니 블로그를 만드는 과정이 첫번째 포스팅이 되어버렸는데 저는 WSL(Ubuntu 18.04) 환경에서 만들었습니다.</p>
+
+<h2 id="가장-먼저">가장 먼저</h2>
+
+<p><a href="https://jekyllrb-ko.github.io/docs/">Jekyll 공식문서</a>의 빠른 설치 가이드를 보면 특별히 어려운 점은 없습니다.</p>
+
+<p>또한, <a href="https://jekyllrb-ko.github.io/docs/installation/windows/">Windows에서 Bash를 통해 Jekyll을 설치하는 방법</a>에서는 WSL 환경을 언급하고 있습니다. 기본적으로는 이 방법을 따랐는데 sudo를 사용하지 않으면 설치 권한이 없다는 에러가 자꾸 나와서 그냥 sudo를 썼음….(어쩐지 별 문제는 없네요)</p>
+
+<p><em>가장 중요한 점은 공식문서에도 언급하고 있듯이 <strong>Ruby</strong>를 먼저 설치해야한다는 것!</em></p>
+
+<p>어떤 분은 Ruby가 필요하다는걸 나중에 알고 Repository를 몇 번 엎어가며 시행착오를 겪으신 것 같던데…(물론 알고 있던 저도 몇 번이나 엎었습니다…)</p>
+
+<h2 id="하지만-우리는">하지만 우리는</h2>
+
+<p>남들이 만들어 놓은 테마를 가져다 쓰고 싶은 것 아니겠어요? 저는 디자인이 꽝이란 말이죠.</p>
+
+<p>그래서 아래와 같은 무료 Theme 사이트에서 원하는 테마를 찾아볼 수 있습니다.</p>
+<ul>
+  <li><a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a></li>
+  <li><a href="https://jekyllthemes.io/free">https://jekyllthemes.io/free</a></li>
+  <li><a href="http://themes.jekyllrc.org/">http://themes.jekyllrc.org/</a></li>
+  <li><a href="https://github.com/topics/jekyll-theme">https://github.com/topics/jekyll-theme</a></li>
+</ul>
+
+<p>저는 그 중 <a href="https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll">Clean Blog</a> 테마를 선택했어요.(이유는 많이들 쓰는 것 같아서…)</p>
+
+<p class="post-image"><img src="https://beomki69.github.io//img/posts/2021-02-23-jekyll-1/01.png" alt="Clean Blog" title="Clean Blog" /></p>
+
+<p>위 저장소를 Fork해오면 편한데 그러면 앞선 포스팅에서 언급했듯 잔디를 만들 수 없는 상황이 생긴다고 해서 Download ZIP을 통해 내려받아 만들어 놓았던 Github Repository와 연결했습니다.</p>
+
+<p class="post-image"><img src="https://beomki69.github.io//img/posts/2021-02-23-jekyll-1/02.png" alt="Download ZIP으로 내려받아 줍시다" title="Download ZIP으로 내려받아 줍시다" /></p>
+
+<p>먼저 이 폴더를 자신의 Repository로 push 해줍니다.
+그리고 터미널을 열어 해당 폴더로 이동해 공식 문서의 설치과정을 따라주면 됩니다.</p>
+
+<p>먼저 저장소 목록과 패키지를 업데이트 합니다.</p>
+
+<figure class="highlight">
+  <pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="nb">sudo </span>apt-get update <span class="nt">-y</span> <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get upgrade <span class="nt">-y</span>
+</pre></td></tr></tbody></table></code></pre>
+</figure>
+
+<p>이제 Ruby를 설치합니다.</p>
+
+<figure class="highlight">
+  <pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="nb">sudo </span>apt-add-repository ppa:brightbox/ruby-ng
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>ruby2.5 ruby2.5-dev build-essential dh-autoreconf
+</pre></td></tr></tbody></table></code></pre>
+</figure>
+
+<p>설치가 완료되었다면 gem을 업데이트하고 jekyll을 설치합니다!</p>
+
+<figure class="highlight">
+  <pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre>gem update
+gem <span class="nb">install </span>jekyll bundler
+</pre></td></tr></tbody></table></code></pre>
+</figure>
+
+<p>아래의 명령어로 제대로 설치 되었는지 확인합니다.</p>
+
+<figure class="highlight">
+  <pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>jekyll <span class="nt">-v</span>
+</pre></td></tr></tbody></table></code></pre>
+</figure>
+
+<p>제대로 설치되었다면 jekyll을 초기화합니다.</p>
+
+<figure class="highlight">
+  <pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>jekyll new .
+</pre></td></tr></tbody></table></code></pre>
+</figure>
+
+<p>이제 아래의 명령어로 서버를 실행해봅시다.</p>
+
+<figure class="highlight">
+  <pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>bundle <span class="nb">exec </span>jekyll serve
+</pre></td></tr></tbody></table></code></pre>
+</figure>
+
+<p>성공적으로 실행되었다면 <a href="http://localhost:4000">http://localhost:4000</a> 로 접속해 확인할 수 있습니다!</p>
+
+<p>마지막으로 저장소에 push를 잊지마세요.
+다음으로는 커스텀!</p>
+
+<h2 id="참고사이트">참고사이트</h2>
+<hr />
+<ul>
+  <li><a href="https://theorydb.github.io/envops/2019/05/03/envops-blog-github-pages-jekyll/">https://theorydb.github.io/envops/2019/05/03/envops-blog-github-pages-jekyll/</a></li>
+  <li><a href="https://theorydb.github.io/envops/2019/05/02/envops-blog-theme/">https://theorydb.github.io/envops/2019/05/02/envops-blog-theme/</a></li>
+  <li><a href="https://wormwlrm.github.io/2018/07/13/How-to-set-Github-and-Jekyll-environment-on-Windows.html">https://wormwlrm.github.io/2018/07/13/How-to-set-Github-and-Jekyll-environment-on-Windows.html</a></li>
+  <li><a href="https://wormwlrm.github.io/2018/07/09/How-to-clone-Jekyll-theme-without-downloading-Jekyll.html">https://wormwlrm.github.io/2018/07/09/How-to-clone-Jekyll-theme-without-downloading-Jekyll.html</a></li>
+</ul>
+:ET
