@@ -1,0 +1,30 @@
+.post-nav {
+  position: absolute;
+  top: 62px;
+  left: 100%;
+  margin-left: 5rem;
+  ul {
+    overflow: hidden auto;
+    width: 240px;
+    max-height: calc(100vh - 128px);
+    line-height: 1.5;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    color: $gray-600;
+    list-style: none;
+    border-left: 2px solid $gray-300;
+    &.fixed {
+      position: fixed;
+      top: 112px;
+    }
+    ul {
+      border: none;
+    }
+  }
+  @media (max-width: 1365px) {
+    display: none;
+  }
+  @media (max-width: 1440px) {
+    margin-left: 3rem;
+  }
+}
