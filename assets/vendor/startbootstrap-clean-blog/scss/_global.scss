@@ -79,4 +79,7 @@ img::-moz-selection {
 
 .post-image {
   text-align: center;
+  img {
+    max-width: 75%;
+  }
 }
