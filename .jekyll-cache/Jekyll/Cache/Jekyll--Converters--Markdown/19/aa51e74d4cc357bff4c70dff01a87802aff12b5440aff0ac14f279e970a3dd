@@ -1,0 +1,62 @@
+I"�<div class="post-nav">
+<ul id="markdown-toc">
+  <li><a href="#왜-utterances" id="markdown-toc-왜-utterances">왜 Utterances?</a></li>
+  <li><a href="#그럼-추가해봅시다" id="markdown-toc-그럼-추가해봅시다">그럼 추가해봅시다!</a></li>
+  <li><a href="#연동하기" id="markdown-toc-연동하기">연동하기!</a></li>
+  <li><a href="#참고-사이트" id="markdown-toc-참고-사이트">참고 사이트</a></li>
+</ul>
+
+</div>
+
+<h2 id="왜-utterances">왜 Utterances?</h2>
+
+<p>이전 포스팅에서 Disqus를 적용까지 했다가, 바로 Utterances로 갈아탔다고 했습니다. 제가 Utterances로 갈아탄 이유는 한 가지인데, 그건 바로 더 이쁘기 때문입니다… Utterances는 Github Repository의 issue를 이용하는데, 때문에 댓글을 남기기 위해 Github 계정이 있어야 합니다. 하지만 그것도 별로 대수롭지 않았던건 나름 개발 블로그이고, 그렇다면 유입 대상도 개발자일텐데 그러면 당연히 Github 계정이 있지 않겠어? 하는 <del>안일한</del> 생각…</p>
+
+<p>시작하기전에 준비해야할 것은 <strong>공개된 Github Repository!</strong></p>
+
+<h2 id="그럼-추가해봅시다">그럼 추가해봅시다!</h2>
+
+<p>먼저 Github App에서 <a href="https://github.com/apps/utterances">Utterances</a>를 설치합니다.</p>
+
+<p class="post-image"><img src="https://beomki69.github.io//img/posts/2021-02-25-jekyll-3-2/01.png" alt="Utterances 설치 화면" title="Utterances 설치 화면" /></p>
+
+<p>Install 버튼을 누르면 댓글 등록을 위해 권한을 요구하는 화면이 나오는데, 블로그가 있는 Repository가 공개라면 같은 Repository를 사용하셔도 좋지만 저는 따로 준비한 공개된 Repository를 이용했습니다. 중요한건 <strong>공개된 Repository여야 합니다!</strong></p>
+
+<p>이제 원하시는대로 설정을 하시면 됩니다. 설정을 마치시면 아래의 코드가 설정한대로 생성됩니다. (아래의 코드는 예시이기 때문에 설정이 되어있지않습니다.)</p>
+
+<figure class="highlight">
+  <pre><code class="language-js" data-lang="js"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">https://utteranc.es/client.js</span><span class="dl">"</span>
+        <span class="nx">repo</span><span class="o">=</span><span class="dl">"</span><span class="s2">[ENTER REPO HERE]</span><span class="dl">"</span>
+        <span class="nx">issue</span><span class="o">-</span><span class="nx">term</span><span class="o">=</span><span class="dl">"</span><span class="s2">pathname</span><span class="dl">"</span>
+        <span class="nx">theme</span><span class="o">=</span><span class="dl">"</span><span class="s2">github-light</span><span class="dl">"</span>
+        <span class="nx">crossorigin</span><span class="o">=</span><span class="dl">"</span><span class="s2">anonymous</span><span class="dl">"</span>
+        <span class="k">async</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre>
+</figure>
+
+<p>한가지 중요한건 issue-term 설정으로 각 포스트와 이슈를 매핑하는데 각자의 상황에 맞게 설정하시면 됩니다.</p>
+
+<h2 id="연동하기">연동하기!</h2>
+<p>마지막으로 위의 코드를 원하는 페이지에 넣어주시면 됩니다. 저는 각 포스트 하단에 댓글창을 원했기 때문에 _layout의 post.html 하단에 코드를 추가했습니다.</p>
+
+<p>이게 끝이랍니다. 어쩌면 Disqus보다 더 간단했던 것 같아요. 하지만 많은 사람이 이용하는 만큼 다른 장점이 있을거라 생각합니다. 개인의 상황에 맞는 서비스를 선택하시길 바랍니다. <del>저는 그냥 이뻐서했어요.</del></p>
+
+<h2 id="참고-사이트">참고 사이트</h2>
+<hr />
+<ul>
+  <li>HAHWUL
+    <ul>
+      <li><a href="https://www.hahwul.com/2020/08/08/jekyll-utterances/">Jekyll에 Utterances 댓글 적용하기</a></li>
+    </ul>
+  </li>
+</ul>
+
+:ET
