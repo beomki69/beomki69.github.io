@@ -50,8 +50,8 @@ const init = () => {
   const mastheadObserver = new IntersectionObserver(handleFixed);
   mastheadObserver.observe(masthead);
 
-  handleLinks();
-  window.addEventListener("scroll", handleLinks);
+  // handleLinks();
+  // window.addEventListener("scroll", handleLinks);
 };
 
 init();
